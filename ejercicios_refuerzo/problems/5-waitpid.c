@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h> // Include the sys/wait.h header to resolve warnings
 
 int main()
 {
@@ -43,21 +44,3 @@ int main()
 
     return 0;
 }
-
-/**
- * Pregunta: ¿cuándo podría ser ```waitpid()``` útil?
- * 
- * La función waitpid() puede ser útil en las siguientes situaciones:
- * - Esperar a un proceso hijo específico: La función waitpid() permite especificar
- * el PID del proceso hijo que desea esperar. Esto puede ser útil si tiene varios
- * procesos hijos en ejecución y solo desea esperar a uno específico.
- *
- * - Obtener información adicional sobre el estado de salida del proceso hijo: La
- * función waitpid() proporciona más información sobre el estado de salida del
- * proceso hijo que la función wait(). Por ejemplo, puede obtener el código de
- * salida del proceso hijo o la señal que lo terminó.
- *
- * - Recibir notificaciones cuando un proceso hijo cambia de estado: La función
- * waitpid() se puede utilizar para recibir notificaciones cuando un proceso hijo
- * cambia de estado, como cuando se detiene o se reanuda.
- */
