@@ -56,6 +56,7 @@ void run_command(char *str)
         if (pid_para == 0)
         {
             // Child process runs the parallel command
+            parallel_command = malloc(100);
             parallel_command = strdup(str); // Allocate memory dynamically
             run_command(parallel_command);
             free(parallel_command); // Free dynamically allocated memory
