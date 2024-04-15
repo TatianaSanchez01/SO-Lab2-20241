@@ -45,19 +45,17 @@ int main(int argc, char *argv[])
 
 void run_command(char *str)
 {
-    printf("Entering run_command function\n");
-
     // First, try to separate by parallel
     int pid_para = -1;
     char *parallel_command;
     char *shell_call = strsep(&str, "&");
-    printf("Shell call: %s\n", shell_call);
     if (str != NULL)
     {
         pid_para = fork();
         if (pid_para == 0)
         {
             // Child process runs the parallel command
+            parallel_command = malloc(100);
             parallel_command = strdup(str); // Allocate memory dynamically
             run_command(parallel_command);
             free(parallel_command); // Free dynamically allocated memory

@@ -1,0 +1,1 @@
+../tester/run-tests.sh: line 23: 51884 Segmentation fault      ./wish tests/17.in
